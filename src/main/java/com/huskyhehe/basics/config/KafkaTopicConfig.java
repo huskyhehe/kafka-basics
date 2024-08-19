@@ -12,8 +12,15 @@ public class KafkaTopicConfig {
     @Value("${spring.kafka.topic.name}")
     private String topicName;
 
+    @Value("${spring.kafka.topic-json.name}")
+    private String topicJsonName;
+
     @Bean
     public NewTopic basicsTopic() {
         return TopicBuilder.name(topicName).build();
+    }
+
+    public NewTopic basicJsonTopic() {
+        return TopicBuilder.name(topicJsonName).build();
     }
 }
